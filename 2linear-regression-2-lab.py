@@ -14,11 +14,15 @@ df['cs'] = np.round(1e3/df['myct'], 2)# clock speed in MHz
 
 #2
 y = np.array(df['prp'])
-x = np.array(df['mmin'],df['mmax'])
+temp = np.array(df['mmin'])
+temp2 = np.array(df['mmax'])
+
+x = np.column_stack((temp,temp2))
 
 #3
 x_train, x_test, y_train, y_test = train_test_split(x,y)
-
+regr = LinearRegression()
+regr.fit(x_train,y_train)
 #4
 #I used the mmin and mmax values for y
 
