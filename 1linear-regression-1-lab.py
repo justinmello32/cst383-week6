@@ -22,6 +22,10 @@ sns.pairplot(df)
 sns.scatterplot(data=df,x="mmin",y="cach")
 
 #5
-#fit = LinearRegression().fit(df["prp"],"mmin")
+x = df[['prp']].values
+y = df['mmin'].values
+regr = LinearRegression()
+regr.fit(x,y)
+
 
 # %%
